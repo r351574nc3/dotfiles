@@ -2,13 +2,13 @@
 
 ;;
 ;; My .emacs:
-;; Leo Przybylski (przybyls@arizona.edu)
+;; Leo Przybylski (przybyls [at] arizona.edu)
 ;;
 
 ;; My info
 ;;
 (setq user-full-name "Leo Przybylski")
-(setq user-mail-address "r351574nc3@gmail.com")
+(setq user-mail-address "r351574nc3 [at] gmail.com")
 (setq-default indent-tabs-mode nil); 
 (setq default-tab-width 4)
 ;; (require 'setnu)
