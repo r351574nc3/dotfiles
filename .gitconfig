@@ -4,3 +4,57 @@
 	signingkey = 2DDF1261
 [push]
 	default = simple
+    editor = emacs
+[alias]
+    ci = commit
+    st = status
+    br = branch
+    co = checkout
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    h = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset' --abbrev-commit --
+    amend = commit --amend
+    remove-last = reset --soft HEAD~1
+    remove-last-hard = reset --hard HEAD~1
+    cloneurl = config --get remote.origin.url
+    
+    # remove a file from index
+    unadd = git reset HEAD
+
+    # what tag contains the sha
+    whatrelease = name-rev --name-only
+
+    # what branch contains the sha
+    contains = branch --contains
+
+    # various pretty loggers from various places
+    log = log --show-signature
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lc = log ORIG_HEAD.. --stat --no-merges
+    # from http://blog.kfish.org/2010/04/git-lola.html
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ll = log --graph --date=short
+
+    # from https://git.wiki.kernel.org/index.php/Aliases
+    whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+    whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+[branch]
+   autosetuprebase = always
+
+[merge]
+    tool = emerge
+
+[mergetool "ediff"]
+    cmd = emacs --eval \"(progn  (defun ediff-write-merge-buffer ()    (let ((file ediff-merge-store-file))      (set-buffer ediff-buffer-C)      (write-region (point-min) (point-max) file)      (message \\\"Merge buffer saved in: %s\\\" file)      (set-buffer-modified-p nil)      (sit-for 1)))  (setq ediff-quit-hook 'kill-emacs        ediff-quit-merge-hook 'ediff-write-merge-buffer)   (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"                                   \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
+
+[diff]
+    tool = emerge
+
+[difftool "ediff"]
+    cmd = emacs --eval \"(progn  (defun ediff-write-merge-buffer ()    (let ((file ediff-merge-store-file))      (set-buffer ediff-buffer-C)      (write-region (point-min) (point-max) file)      (message \\\"Merge buffer saved in: %s\\\" file)      (set-buffer-modified-p nil)      (sit-for 1)))  (setq ediff-quit-hook 'kill-emacs        ediff-quit-merge-hook 'ediff-write-merge-buffer)   (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"                                   \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
