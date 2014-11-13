@@ -1,17 +1,15 @@
 [user]
-	name = r351574nc3
-	email = r351574nc3@gmail.com
-	signingkey = 2DDF1261
+    name = r351574nc3
+    email = r351574nc3 [at] gmail.com
+    signingkey = 2DDF1261
 [push]
-	default = simple
+    default = simple
     editor = emacs
 [alias]
     ci = commit
     st = status
     br = branch
     co = checkout
-    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-    h = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset' --abbrev-commit --
     amend = commit --amend
     remove-last = reset --soft HEAD~1
     remove-last-hard = reset --hard HEAD~1
@@ -46,15 +44,13 @@
     ui = auto
 [branch]
    autosetuprebase = always
-
+[gc]
+    auto = 1
 [merge]
     tool = emerge
-
-[mergetool "ediff"]
-    cmd = emacs --eval \"(progn  (defun ediff-write-merge-buffer ()    (let ((file ediff-merge-store-file))      (set-buffer ediff-buffer-C)      (write-region (point-min) (point-max) file)      (message \\\"Merge buffer saved in: %s\\\" file)      (set-buffer-modified-p nil)      (sit-for 1)))  (setq ediff-quit-hook 'kill-emacs        ediff-quit-merge-hook 'ediff-write-merge-buffer)   (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"                                   \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
-
+[mergetool]
+    prompt = false
 [diff]
     tool = emerge
-
-[difftool "ediff"]
-    cmd = emacs --eval \"(progn  (defun ediff-write-merge-buffer ()    (let ((file ediff-merge-store-file))      (set-buffer ediff-buffer-C)      (write-region (point-min) (point-max) file)      (message \\\"Merge buffer saved in: %s\\\" file)      (set-buffer-modified-p nil)      (sit-for 1)))  (setq ediff-quit-hook 'kill-emacs        ediff-quit-merge-hook 'ediff-write-merge-buffer)   (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"                                   \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
+[difftool]
+    prompt = false
