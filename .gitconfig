@@ -28,12 +28,12 @@
 
     # various pretty loggers from various places
     log = log --show-signature
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lg = log --graph --show-signature --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     lc = log ORIG_HEAD.. --stat --no-merges
     # from http://blog.kfish.org/2010/04/git-lola.html
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    ll = log --graph --date=short
+    lol = log --graph --show-signature --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --show-signature --decorate --pretty=oneline --abbrev-commit --all
+    ll = log --graph --show-signature --date=short
 
     # from https://git.wiki.kernel.org/index.php/Aliases
     whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
